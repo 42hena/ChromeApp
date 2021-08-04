@@ -1,20 +1,16 @@
 const loginForm = document.querySelector("#login-form");
 const loginInput = document.querySelector("#login-form input")
+const greeting = document.querySelector("#greeting");
 
-const link = document.querySelector('a');
+const HIDDEN_CLASSNAME = "hidden";
 
-console.log(link)
 function onLoginSumbit(event){
     event.preventDefault();
-    // console.log(tomato)
-    console.log(loginInput.value)
-}
+    const username = loginInput.value;
+    loginForm.classList.add(HIDDEN_CLASSNAME);
+    console.log(username);
+    greeting.innerText = `Hello ${username}`;
+    greeting.classList.remove(HIDDEN_CLASSNAME)
 
-function handleListener(event){
-    console.log(event)
-    event.preventDefault();
-    // alert("click")
 }
-
 loginForm.addEventListener("submit", onLoginSumbit)
-link.addEventListener("click",handleListener)
